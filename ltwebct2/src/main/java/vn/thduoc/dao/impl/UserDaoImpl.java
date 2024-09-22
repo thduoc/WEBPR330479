@@ -15,7 +15,7 @@ public class UserDaoImpl implements IUserDao {
 	
 	@Override
 	public UserModel findByUsername(String username) {
-		String sql = "SELECT * FROM ltweb.users WHERE username = ? ";
+		String sql = "SELECT * FROM ltwebct2.dbo.users WHERE username = ? ";
 		try {
 			conn = new DBConnectSQL().getConnection();
 			ps = conn.prepareStatement(sql);
@@ -69,5 +69,13 @@ public class UserDaoImpl implements IUserDao {
 		// TODO Auto-generated method stub
 		
 	}
-
+//	 // Test chương trình. Kích phải chuột chọn run as->java application
+//		public static void main(String[] args) {
+//			try {
+//				IUserDao userDao = new UserDaoImpl();
+//				System.out.println(userDao.findByUsername("duocnt"));
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
 }

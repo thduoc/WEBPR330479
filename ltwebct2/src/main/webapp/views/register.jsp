@@ -66,7 +66,7 @@ a {
 </style>
 </head>
 <body>
-	<form action="/studyproject/register" method="post">
+	<form action="/ltwebct2/register" method="post">
 		<c:if test="${alert !=null}">
 			<h3 class="alert alertdanger">${alert}</h3>
 		</c:if>
@@ -95,7 +95,7 @@ a {
 
 		<div class="container signin">
 			<p>
-				Already have an account? <a href="/studyproject/login">Sign in</a>.
+				Already have an account? <a href="/ltwebct2/login">Sign in</a>.
 			</p>
 		</div>
 	</form>

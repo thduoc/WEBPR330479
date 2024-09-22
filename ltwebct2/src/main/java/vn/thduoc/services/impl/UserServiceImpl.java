@@ -65,8 +65,8 @@ public class UserServiceImpl implements IUserService {
 	public static void main(String[] args) {
 		try {
 			IUserService user = new UserServiceImpl();
-			user.updatePassword("tnat", "123456");
-			System.out.println(user.findByUsername("tnat"));
+			user.updatePassword("duocnt", "123456");
+			System.out.println(user.findByUsername("duocnt"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

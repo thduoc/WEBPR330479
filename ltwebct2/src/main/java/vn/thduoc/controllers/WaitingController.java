@@ -3,12 +3,14 @@ package vn.thduoc.controllers;
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import vn.thduoc.models.UserModel;
 
+@WebServlet(urlPatterns="/waiting")
 public class WaitingController extends HttpServlet {
 
 	/**
@@ -22,10 +24,10 @@ public class WaitingController extends HttpServlet {
 		HttpSession session = req.getSession();
 		if (session != null && session.getAttribute("account") != null) {
 			UserModel user = (UserModel) session.getAttribute("account");
-
-			if (user.getRoleid() == 1) {
+			req.setAttribute("username", user.getUsername());
+			if (user.getRoleid() == 2) {
 				resp.sendRedirect(req.getContextPath() + "/admin/home");
-			} else if (user.getRoleid() == 2) {
+			} else if (user.getRoleid() == 3) {
 				resp.sendRedirect(req.getContextPath() + "/manager/home");
 			} else {
 				resp.sendRedirect(req.getContextPath() + "/home");

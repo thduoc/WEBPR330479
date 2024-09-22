@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-	<h1>Welcome User!</h1>
+	<h1>Welcome Manager!</h1>
 	<c:choose>
 		<c:when test="${sessionScope.account == null}">
 			<div class="col-sm-6">

@@ -67,7 +67,7 @@ a {
 </style>
 </head>
 <body>
-	<form action="/studyproject/resetpassword" method="post">
+	<form action="/ltwebct2/forgotpasswrd" method="post">
 		<c:if test="${alert !=null}">
 			<h3 class="alert alertdanger">${alert}</h3>
 		</c:if>

@@ -105,8 +105,8 @@ span.psw {
 		</div>
 
 		<div class="container" style="background-color: #f1f1f1">
-			<span class="registerbtn">Don't have an account? <a href="/studyproject/register">Register</a></span>
-			<span class="psw"><a href="/studyproject/resetpassword">Forgot password?</a></span>
+			<span class="registerbtn">Don't have an account? <a href="/ltwebct2/register">Register</a></span>
+			<span class="psw"><a href="/ltwebct2/forgotpasswrd">Forgot password?</a></span>
 		</div>
 	</form>
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-	<h1>Welcome User!</h1>
+	<h1>Welcome Admin!</h1>
 	<c:choose>
 		<c:when test="${sessionScope.account == null}">
 			<div class="col-sm-6">
