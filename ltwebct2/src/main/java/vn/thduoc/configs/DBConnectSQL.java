@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 
 public class DBConnectSQL {
 	
-	private final String serverName = "NOKIA3310";
-	private final String dbName = "ltwebct2";
-	private final String portNumber = "1433";
-	private final String userID = "sa";
-	private final String password = "kali";
+	private final static String serverName = "NOKIA3310";
+	private final static String dbName = "ltwebct2";
+	private final static String portNumber = "1433";
+	private final static String userID = "sa";
+	private final static String password = "kali";
 	
-	public Connection getConnection() throws Exception {
+	public static Connection getConnection() throws Exception {
 		String url = "jdbc:sqlserver://" + serverName + ":" + portNumber + ";databaseName=" + dbName;
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		return DriverManager.getConnection(url, userID, password);

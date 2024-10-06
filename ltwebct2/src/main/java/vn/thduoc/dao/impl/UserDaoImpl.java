@@ -42,32 +42,107 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public void insertUser(UserModel user) {
-		// TODO Auto-generated method stub
+String query = "INSERT INTO `ltweb`.`users` (username, password, email, fullname, images, phone, roleid, createdate) VALUES (?,?,?,?,?,?,?,?)";
 		
+		try {
+			// mở kết nối
+			new DBConnectSQL();
+			conn = DBConnectSQL.getConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, user.getUsername());
+			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getFullname());
+			ps.setString(5, user.getImages());
+			ps.setString(6, user.getPhone());
+			ps.setInt(7, user.getRoleid());
+			ps.setDate(8, user.getCreatedate());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public boolean checkExistUsername(String username) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean duplicate = false;
+		String query = "SELECT * FROM ltweb.users WHERE username = ? ";
+		try {
+			// mở kết nối
+			new DBConnectSQL();
+			conn = DBConnectSQL.getConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				duplicate = true;
+			}
+			ps.close();
+			conn.close();
+		} catch (Exception e) {
+
+		}
+		return duplicate;
 	}
 
 	@Override
 	public boolean checkExistEmail(String email) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean duplicate = false;
+		String query = "SELECT * FROM ltweb.users WHERE email = ? ";
+		try {
+			// mở kết nối
+			new DBConnectSQL();
+			conn = DBConnectSQL.getConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				duplicate = true;
+			}
+			ps.close();
+			conn.close();
+		} catch (Exception e) {
+
+		}
+		return duplicate;
 	}
 
 	@Override
 	public boolean checkExistPhone(String phone) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean duplicate = false;
+		String query = "SELECT * FROM ltweb.users WHERE phone = ? ";
+		try {
+			// mở kết nối
+			new DBConnectSQL();
+			conn = DBConnectSQL.getConnection();
+			ps = conn.prepareStatement(query);
+			ps.setString(1, phone);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				duplicate = true;
+			}
+			ps.close();
+			conn.close();
+		} catch (Exception e) {
+
+		}
+		return duplicate;
 	}
 
 	@Override
 	public void updatePassword(String username, String newPassword) {
-		// TODO Auto-generated method stub
-		
+		//UPDATE `ltweb`.`users` SET `password` = 'Abc123.' WHERE (`id` = '9');
+				String query = "UPDATE `ltweb`.`users` SET password = ? WHERE (username = ?);";
+				try {
+					new DBConnectSQL();
+					conn = DBConnectSQL.getConnection();
+					ps = conn.prepareStatement(query);
+					ps.setString(1, newPassword);
+					ps.setString(2, username);
+					ps.executeUpdate();
+				} catch (Exception e) {
+					
+				}
 	}
 //	 // Test chương trình. Kích phải chuột chọn run as->java application
 //		public static void main(String[] args) {
